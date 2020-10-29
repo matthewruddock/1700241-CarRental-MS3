@@ -5,6 +5,8 @@
 
     <div class="product_row">
   
+        <asp:Label ID="cartStatus" runat="server" Text="Label" Visible="False"></asp:Label>
+  
         <asp:GridView ID="gvShoppingCart" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" AutoGenerateColumns="False" 
             OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="800px" Height="200px" 
             OnRowCancelingEdit="getShoppingCart_RowCancelingEdit" OnRowDeleting="getShoppingCart_RowDeleting" 
@@ -35,6 +37,7 @@
         </asp:GridView>
 
         <h4 style="color:red; font-weight: bold;" ><asp:Label ID="lblGrandTotal" runat="server" Text="Label" Visible="False"></asp:Label></h4>
+        <asp:Button ID="btnCheckout" runat="server"  OnClick="btnCheckout_Click" Text="Checkout" BackColor="#00CC99" Font-Bold="True" Visible="False" />
     </div>
     
 </asp:Content>

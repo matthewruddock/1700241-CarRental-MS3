@@ -38,14 +38,20 @@ namespace _1700241_CarRental_MS2
             if (myCart.CarsList.Count == 0)
             {
                 lblGrandTotal.Visible = false;
+                cartStatus.Text = "Cart is empty";
+                cartStatus.Visible = true;
             }
             else
             {
                 lblGrandTotal.Text = string.Format("Grand Total = {0,19:C}", myCart.GrandTotal);
                 lblGrandTotal.Visible = true;
+                btnCheckout.Visible = true;
             }
         }
-        
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OrderDetails.aspx");
+        }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

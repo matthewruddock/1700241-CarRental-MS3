@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" Inherits="_1700241_CarRental_MS2.ProductDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:DataList ID="dlProductDetails" runat="server" RepeatColumns="1">
+    <asp:DataList ID="dlProductDetails" runat="server" RepeatColumns="1" >
         <ItemTemplate>
             <table style="width:100%;">
                 <tr>
@@ -44,6 +44,25 @@
                     <td>
                         $<asp:Label ID="Label6" runat="server" Text='<%# Eval("cost") %>'></asp:Label>
                     </td>
+                </tr>
+                <tr>
+                    <td style="width: 125px">Start Date:</td>
+                    <td>
+
+                        <asp:TextBox id="startDate" runat="server"></asp:TextBox>
+
+                        <td><asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Selection_Change1"></asp:Calendar></td>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="width: 125px">End Date:</td>
+                    <td>
+
+                        <asp:TextBox id="endDate" runat="server"></asp:TextBox>
+                        <td><asp:Calendar ID="Calendar2" runat="server" OnSelectionChanged="Selection_Change2"></asp:Calendar></td>
+                    </td>
+
                 </tr>
                 <tr>
                     <td style="width: 125px">&nbsp;</td>

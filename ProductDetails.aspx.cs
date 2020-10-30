@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Globalization;
 
 namespace _1700241_CarRental_MS2
 {
@@ -16,7 +17,7 @@ namespace _1700241_CarRental_MS2
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
+            {
                 string id = Request.QueryString["id"];
                 if (id != null)
                 {
@@ -26,8 +27,30 @@ namespace _1700241_CarRental_MS2
             }
         }
 
-        protected void btnAddToCart_ProDetail_Click(object sender, EventArgs e)
+        protected void Selection_Change1(Object sender, EventArgs e)
         {
+            startDate.Text = Calendar1.SelectedDate.ToShortDateString();
+        }
+        protected void Selection_Change2(Object sender, EventArgs e)
+        {
+            endDate.Text = Calendar2.SelectedDate.ToShortDateString();
+        }
+
+        protected void btnAddToCart_ProDetail_Click(object sender, EventArgs e)
+        {/*
+            if (startDate.Text != "" && endDate.Text != "")
+            {
+                //Storing input Dates  
+                DateTime StartDate = Convert.ToDateTime(startDate.Text);
+                DateTime EndDate = Convert.ToDateTime(endDate.Text);
+
+                //Creating object of TimeSpan Class  
+                TimeSpan objTimeSpan = EndDate - StartDate;
+
+                //TotalDays  
+                double Days = Convert.ToDouble(objTimeSpan.TotalDays);
+            }
+            */
             if (Session["myCart"] == null)
             {
                 this.myCart = new Cart();
@@ -40,7 +63,6 @@ namespace _1700241_CarRental_MS2
             DataTable dt = DataAccess.selectQuery("SELECT * FROM Products WHERE id = " + id);
             DataRow row = dt.Rows[0];
 
-            //Data is not populating in row
             myCart.Insert(new Cars(
                 Int32.Parse(id),
                 row["year"].ToString(),
@@ -52,6 +74,7 @@ namespace _1700241_CarRental_MS2
                 row["image"].ToString(),
                 1)
            );
+
 
 
         }

@@ -22,5 +22,11 @@ namespace _1700241_CarRental_MS2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dlProductDetails;
+        protected global::System.Web.UI.WebControls.Button BtnAddToCart_ProDetail;
+        protected global::System.Web.UI.WebControls.TextBox startDate;
+        protected global::System.Web.UI.WebControls.TextBox endDate;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.Calendar Calendar2;
+        
     }
 }
